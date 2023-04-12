@@ -1,0 +1,13 @@
+com\alu\ovng\resource\PublisherResource.class
+com\alu\ovng\repository\BookRepo.class
+com\alu\ovng\vo\AuthorVO$AuthorVOBuilder.class
+com\alu\ovng\repository\PublisherRepo.class
+com\alu\ovng\resource\BookResource.class
+com\alu\ovng\repository\AuthorRepo.class
+com\alu\ovng\resource\AuthorResource.class
+com\alu\ovng\entity\Book.class
+com\alu\ovng\vo\AuthorVO.class
+com\alu\ovng\entity\Author.class
+META-INF\panache-archive.marker
+com\alu\ovng\entity\Publisher.class
+com\alu\ovng\controller\AuthorController.class
