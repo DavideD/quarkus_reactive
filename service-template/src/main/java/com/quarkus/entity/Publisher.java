@@ -1,27 +1,33 @@
 package com.quarkus.entity;
 
-import io.quarkus.hibernate.reactive.panache.PanacheEntityBase;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
-@Data
+import io.quarkus.hibernate.reactive.panache.PanacheEntityBase;
+
 @Entity
-@NoArgsConstructor
 @Table(name = "publisher")
 public class Publisher extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public Long id;
 
     @Column(name = "publisher_name")
-    private String publisherName;
+    public String publisherName;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "map_publisher_book",
             joinColumns = @JoinColumn(name = "publisher_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id"))
-    private Set<Book> books;
+    public Set<Book> books = new HashSet<>();
 }

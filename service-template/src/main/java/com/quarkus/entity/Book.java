@@ -1,31 +1,36 @@
 package com.quarkus.entity;
 
-import io.quarkus.hibernate.reactive.panache.PanacheEntityBase;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
-import java.util.LinkedHashSet;
+import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Data
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import io.quarkus.hibernate.reactive.panache.PanacheEntityBase;
+
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "book")
 public class Book extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public Long id;
 
     @Column(name = "book_name")
-    private String bookName;
+    public String bookName;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
-    private Author author;
+    public Author author;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "books")
-    private Set<Publisher> publishers = new LinkedHashSet<>();
+    public Set<Publisher> publishers = new HashSet<>();
 }

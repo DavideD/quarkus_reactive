@@ -1,12 +1,11 @@
 package com.quarkus.resource;
 
-import com.quarkus.entity.Book;
-import com.quarkus.repository.BookRepo;
-import com.quarkus.vo.BookVO;
-import io.smallrye.mutiny.Uni;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+
+import com.quarkus.entity.Book;
+import com.quarkus.repository.BookRepo;
+import io.smallrye.mutiny.Uni;
 
 @ApplicationScoped
 public class BookResource {
@@ -17,8 +16,8 @@ public class BookResource {
         return bookRepo.findAndFetch(id);
     }
 
-    public Uni<BookVO> findVO(Long id) {
-        return bookRepo.findFetchAndConvertVO(id);
+    public Uni<Book> findVO(Long id) {
+        return bookRepo.findAndFetch(id);
     }
 
     public Uni<Book> findByName(String name) {
@@ -26,7 +25,7 @@ public class BookResource {
     }
 
     public Uni<Book> create(Book book) {
-        return findByName(book.getBookName())
+        return findByName(book.bookName)
                 .invoke(result -> {
                     if (result != null) {
                         throw new RuntimeException("Duplicate"); //Duplicated

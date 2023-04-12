@@ -1,24 +1,30 @@
 package com.quarkus.entity;
 
-import io.quarkus.hibernate.reactive.panache.PanacheEntityBase;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Data
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import io.quarkus.hibernate.reactive.panache.PanacheEntityBase;
+
 @Entity
-@NoArgsConstructor
 @Table(name = "author")
 public class Author extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public Long id;
 
     @Column(name = "author_name")
-    private String authorName;
+    public String authorName;
 
+    @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
-    private Set<Book> books;
+    public Set<Book> books = new HashSet<>();
 }

@@ -1,7 +1,11 @@
-C:\Users\hquocthai\Desktop\quakus test\service-template\src\main\java\com\alu\ovng\service\device\DeviceDynamicAttributeService.java
-C:\Users\hquocthai\Desktop\quakus test\service-template\src\main\java\com\alu\ovng\controller\DeviceDynamicAttributeController.java
-C:\Users\hquocthai\Desktop\quakus test\service-template\src\main\java\com\alu\ovng\service\device\DeviceDynamicAttributeConsumer.java
-C:\Users\hquocthai\Desktop\quakus test\service-template\src\main\java\com\alu\ovng\vo\DeviceDynamicAttributeVO.java
-C:\Users\hquocthai\Desktop\quakus test\service-template\src\main\java\com\alu\ovng\entity\GenericEntity.java
-C:\Users\hquocthai\Desktop\quakus test\service-template\src\main\java\com\alu\ovng\entity\DeviceDynamicAttribute.java
-C:\Users\hquocthai\Desktop\quakus test\service-template\src\main\java\com\alu\ovng\repository\DeviceDynamicAttributeRepository.java
+/home/ddalto/Workspace/so/quarkus_reactive/service-template/src/main/java/com/quarkus/repository/BookRepo.java
+/home/ddalto/Workspace/so/quarkus_reactive/service-template/src/main/java/com/quarkus/resource/AuthorResource.java
+/home/ddalto/Workspace/so/quarkus_reactive/service-template/src/main/java/com/quarkus/resource/BookResource.java
+/home/ddalto/Workspace/so/quarkus_reactive/service-template/src/main/java/com/quarkus/repository/AuthorRepo.java
+/home/ddalto/Workspace/so/quarkus_reactive/service-template/src/main/java/com/quarkus/repository/PublisherRepo.java
+/home/ddalto/Workspace/so/quarkus_reactive/service-template/src/main/java/com/quarkus/resource/PublisherResource.java
+/home/ddalto/Workspace/so/quarkus_reactive/service-template/src/main/java/com/quarkus/controller/AuthorController.java
+/home/ddalto/Workspace/so/quarkus_reactive/service-template/src/main/java/com/quarkus/entity/Publisher.java
+/home/ddalto/Workspace/so/quarkus_reactive/service-template/src/main/java/com/quarkus/entity/Author.java
+/home/ddalto/Workspace/so/quarkus_reactive/service-template/src/main/java/com/quarkus/entity/Book.java
+/home/ddalto/Workspace/so/quarkus_reactive/service-template/src/main/java/com/quarkus/controller/BookController.java

@@ -22,7 +22,7 @@ public class AuthorResource {
     }
 
     public Uni<Author> create(Author author) {
-        return findByName(author.getAuthorName())
+        return findByName(author.authorName)
                 .invoke(result -> {
                     if (result != null) {
                         throw new RuntimeException("Duplicate"); //Duplicated

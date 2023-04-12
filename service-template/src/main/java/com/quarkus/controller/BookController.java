@@ -1,15 +1,18 @@
 package com.quarkus.controller;
 
-import com.quarkus.entity.Book;
-import com.quarkus.resource.BookResource;
-import com.quarkus.vo.BookVO;
-import io.quarkus.logging.Log;
-import io.smallrye.mutiny.Uni;
+import javax.inject.Inject;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
 import org.jboss.resteasy.reactive.RestPath;
 
-import javax.inject.Inject;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import com.quarkus.entity.Book;
+import com.quarkus.resource.BookResource;
+import io.smallrye.mutiny.Uni;
 
 @Path("/book")
 @Produces(MediaType.APPLICATION_JSON)
@@ -21,21 +24,13 @@ public class BookController {
 
     @GET
     @Path("{id}")
-    public Uni<BookVO> get(@RestPath("id") Long id) {
-        return bookResource.findVO(id)
-                .onFailure().recoverWithItem(err -> {
-                    Log.errorv("Get failed: {}", err);
-                    return null;
-                });
+    public Uni<Book> get(@RestPath("id") Long id) {
+        return bookResource.find(id);
 
     }
 
     @POST
     public Uni<Book> create(Book author) {
-        return bookResource.create(author)
-                .onFailure().recoverWithItem(err -> {
-                    Log.errorv("Create failed: {}", err);
-                    return null;
-                });
+        return bookResource.create(author);
     }
 }
